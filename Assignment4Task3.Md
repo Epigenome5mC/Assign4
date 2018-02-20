@@ -37,6 +37,8 @@ ggplot(data = genes) +
 
 devtools::install_github('hadley/ggplot2')
 
+#You will need to restart R at this point.
+
 p <- ggplot(data = genes) +
   geom_bar(mapping = aes(x = chr, fill = feature), width = 1)
 
