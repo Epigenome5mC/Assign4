@@ -2,7 +2,7 @@
 install.packages("ggplot2")
 library("ggplot2")
 install.packages("plotly")
-library("plotly")
+library("plotly") ```
 
 
 
@@ -42,7 +42,7 @@ devtools::install_github('hadley/ggplot2')
 p <- ggplot(data = genes) +
   geom_bar(mapping = aes(x = chr, fill = feature), width = 1)
 
-ggplotly(p) ```
+ggplotly(p) 
 
 
 
