@@ -1,4 +1,4 @@
-```install.packages("shiny")
+install.packages("shiny")
 install.packages("ggplot2")
 library("ggplot2")
 install.packages("plotly")
