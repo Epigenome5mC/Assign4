@@ -4,8 +4,6 @@ library("ggplot2")
 install.packages("plotly")
 library("plotly")
 
-
-
 setwd("~/Desktop/Programming_2018/mygraph2/bin/")
 getwd()
 list.files()
