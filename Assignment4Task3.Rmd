@@ -1,0 +1,80 @@
+---
+title: "Assignment4Task3"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## This is to install all the packages.
+
+```{r}
+install.packages("ggplot2")
+library("ggplot2")
+install.packages("plotly")
+library("plotly")
+```
+
+## For the directory. You must provied your own directory.
+
+```{r}
+setwd("~/Desktop/Programming_2018/mygraph2/bin/")
+getwd()
+list.files()
+```
+
+## Reading the tsv file
+
+```{r}
+mygenes <- read.csv('gene_dist_head.tsv', header= TRUE, sep = "\t")
+```
+
+## mygenes
+
+```{r}
+summary(mygenes)
+mygenes$feature
+colnames(mygenes)
+rownames(mygenes)
+mygenes[,c(2,4)]
+autosomes<-c("1","2","3","4","5","6","7","8","9","10",
+             "11","12","13","14","15","16","17","18","19","20","21","22")
+```
+
+## For the plots.
+
+```{r}
+genes<- mygenes[ which(mygenes$chr %in% autosomes), ] 
+
+genes$chr <- factor(genes$chr, levels = autosomes)
+
+ggplot(data = genes) +  geom_bar(mapping = aes(x = chr, fill = feature), width = 1)
+
+ggplot(data = genes) +
+  geom_bar(mapping = aes(x = feature))
+
+ggplot(data = genes) +
+  geom_bar(mapping = aes(x = chr, fill = feature))
+
+ggplot(data = genes) +
+  geom_bar(mapping = aes(x = chr, fill = feature), width = 1) +
+  coord_polar()
+```
+
+## To install hadley/ggplot2
+You will need to restart R Studio after installing with devtools.
+
+```{r}
+devtools::install_github('hadley/ggplot2')
+```
+
+## ggplotly
+
+```{r}
+p <- ggplot(data = genes) +
+  geom_bar(mapping = aes(x = chr, fill = feature), width = 1)
+
+ggplotly(p) 
+```
+
